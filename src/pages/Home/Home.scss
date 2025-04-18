@@ -1,0 +1,161 @@
+.banner-section {
+  .banner-slide {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    
+    // Remove the individual background definitions since we're setting them inline
+    
+    .slide-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      width: 90%;
+      max-width: 1200px;
+      padding: 0 20px;
+
+      h1 {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        
+        @media (max-width: 768px) {
+          font-size: 2.5rem;
+        }
+      }
+
+      p {
+        font-size: 1.8rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.9;
+        line-height: 1.6;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        
+        @media (max-width: 768px) {
+          font-size: 1.2rem;
+        }
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        
+        @media (max-width: 768px) {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1.2rem 2.8rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        
+        &.primary {
+          background: white;
+          color: #1e3c72;
+          
+          &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+          }
+        }
+        
+        &.secondary {
+          background: transparent;
+          color: white;
+          border: 2px solid white;
+          
+          &:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+          }
+        }
+      }
+    }
+  }
+
+  .slick-dots {
+    bottom: 30px;
+    
+    li {
+      margin: 0 8px;
+      
+      button:before {
+        color: white;
+        opacity: 0.5;
+        font-size: 12px;
+      }
+
+      &.slick-active button:before {
+        color: white;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.service-card {
+  // Remove the .promise-section {...} from here
+  
+  .stats-section {
+    padding: 6rem 0;
+    background: #1e3c72;
+    color: white;
+  
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+  
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+  
+      .stat-card {
+        .stat-value {
+          font-size: 3rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+        }
+  
+        p {
+          font-size: 1.1rem;
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+  
+  // Remove the entire .experts-section {...} from here
+  
+  .read-more {
+    display: inline-block;
+    color: #1e3c72;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #2a5298;
+    }
+  }
+}

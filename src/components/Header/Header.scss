@@ -1,0 +1,183 @@
+.header {
+  background-color: #274c8f;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.98);
+  z-index: 1000;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    img {
+      height: 40px;
+      width: auto;
+    }
+  }
+
+  .nav-menu {
+    ul {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center; // Add this to align all menu items
+
+      li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        &.dropdown {
+          > a {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 0.5rem 0; // Add padding to match other menu items
+          }
+
+          .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            margin-top: 1rem;
+            
+            &.active {
+              opacity: 1;
+              visibility: visible;
+            }
+
+            li {
+              display: block;
+              margin: 0;
+              padding: 0;
+
+              a {
+                padding: 0.75rem 1.5rem;
+                display: block;
+                color: #333;
+                font-size: 0.95rem;
+
+                &::after {
+                  display: none;
+                }
+
+                &:hover {
+                  background: rgba(0, 123, 255, 0.1);
+                  color: #007bff;
+                }
+              }
+            }
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: -6px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 12px;
+              height: 12px;
+              background: white;
+              transform-origin: center;
+              transform: rotate(45deg);
+              box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.05);
+            }
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: #333;
+          font-weight: 500;
+          font-size: 1rem;
+          transition: color 0.3s ease;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #007bff;
+            transition: width 0.3s ease;
+          }
+
+          &:hover {
+            color: #007bff;
+            
+            &::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contact-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-left: 2rem;
+
+    &:hover {
+      background: #0056b3;
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (max-width: 968px) {
+    .mobile-menu-btn {
+      display: block;
+    }
+
+    .nav-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 1rem 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+      &.active {
+        display: block;
+      }
+
+      ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+  }
+}
